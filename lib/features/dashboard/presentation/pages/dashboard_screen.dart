@@ -75,64 +75,64 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 26,
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(33, 5, 33, 5),
-                  child: Container(
-                    width: MediaQuery.of(context).copyWith().size.height / 2.2,
-                    height: MediaQuery.of(context).copyWith().size.height / 14,
-                    decoration: BoxDecoration(
-                      color: ColorPalette.pureWhite,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(12),
-                        bottom: Radius.circular(12),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: FormBuilderTextField(
-                        // controller: _namaController,
-                        name: 'nama',
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: ColorPalette.gray300),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          suffixIcon: Icon(
-                            Icons.search_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          labelText: 'Search',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: ColorPalette.gray300,
-                            ),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          fillColor: ColorPalette.gray300,
-                          filled: true,
-                        ),
-                        validator: FormBuilderValidators.compose(
-                          [
-                            FormBuilderValidators.required(context),
-                            FormBuilderValidators.maxLength(context, 25),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.fromLTRB(33, 5, 33, 5),
+            //       child: Container(
+            //         width: MediaQuery.of(context).copyWith().size.height / 2.2,
+            //         height: MediaQuery.of(context).copyWith().size.height / 14,
+            //         decoration: BoxDecoration(
+            //           color: ColorPalette.pureWhite,
+            //           borderRadius: BorderRadius.vertical(
+            //             top: Radius.circular(12),
+            //             bottom: Radius.circular(12),
+            //           ),
+            //         ),
+            //         child: Padding(
+            //           padding: const EdgeInsets.all(5),
+            //           child: FormBuilderTextField(
+            //             // controller: _namaController,
+            //             name: 'search',
+            //             decoration: InputDecoration(
+            //               focusedBorder: OutlineInputBorder(
+            //                 borderSide: BorderSide(color: ColorPalette.gray300),
+            //                 borderRadius: BorderRadius.circular(20.0),
+            //               ),
+            //               suffixIcon: Icon(
+            //                 Icons.search_outlined,
+            //                 color: Colors.black,
+            //                 size: 30,
+            //               ),
+            //               labelText: 'Search',
+            //               enabledBorder: OutlineInputBorder(
+            //                 borderSide: BorderSide(
+            //                   color: ColorPalette.gray300,
+            //                 ),
+            //                 borderRadius: BorderRadius.circular(20.0),
+            //               ),
+            //               fillColor: ColorPalette.gray300,
+            //               filled: true,
+            //             ),
+            //             validator: FormBuilderValidators.compose(
+            //               [
+            //                 FormBuilderValidators.required(context),
+            //                 FormBuilderValidators.maxLength(context, 25),
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // ),
             ValueListenableBuilder(
                 valueListenable:
                     Hive.box<DataDiri>(DataDiriBoxName).listenable(),
                 builder: (context, Box<DataDiri> box, _) {
-                  print(box.values.isEmpty);
+                  // print(box.values.isEmpty);
                   if (box.values.isEmpty)
                     return Padding(
                         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -142,7 +142,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   );
                   return Container(
                     width: double.infinity,
-                    height: MediaQuery.of(context).copyWith().size.height / 1.3,
+                    height: MediaQuery.of(context).copyWith().size.height / 1.2,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(
