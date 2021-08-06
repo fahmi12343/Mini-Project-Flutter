@@ -8,4 +8,5 @@ class ColorPalette {
   static const red = Colors.red;
   static const black = Colors.black;
   static const gray300 = Color(0xffEEEEEE);
+  static const pureWhite = Colors.white;
 }

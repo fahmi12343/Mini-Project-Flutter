@@ -766,10 +766,10 @@ class _PageDataDiriState extends State<PageDataDiri> {
                       ],
                     ),
                   ),
-                  validator: FormBuilderValidators.equal(
-                    context,
-                    true,
-                  ),
+                  // validator: FormBuilderValidators.equal(
+                  //   context,
+                  //   true,
+                  // ),
                   onChanged: (checkbox) {
                     if (checkbox == true) {
                       _getJalanController.text = jalanController.text;
@@ -1219,7 +1219,7 @@ class _PageDataDiriState extends State<PageDataDiri> {
                   }));
                 } else {
                   var alertStyle = AlertStyle(
-                    animationType: AnimationType.fromTop,
+                    animationType: AnimationType.shrink,
                     isCloseButton: false,
                     isOverlayTapDismiss: false,
                     descStyle: TextStyle(fontWeight: FontWeight.bold),

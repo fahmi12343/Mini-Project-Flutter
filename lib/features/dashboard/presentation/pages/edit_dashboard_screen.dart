@@ -59,7 +59,7 @@ class EditDataDiriForm extends StatefulWidget {
   _EditDataDiriFormState createState() => _EditDataDiriFormState();
 }
 
-class _EditDataDiriFormState extends State<EditDataDiriForm> {
+class _EditDataDiriFormState extends State<EditDataDiriForm> with AutomaticKeepAliveClientMixin {
   final _formKey = GlobalKey<FormBuilderState>();
 
   TextEditingController _namaController = new TextEditingController();
@@ -866,10 +866,10 @@ class _EditDataDiriFormState extends State<EditDataDiriForm> {
                       ],
                     ),
                   ),
-                  validator: FormBuilderValidators.equal(
-                    context,
-                    true,
-                  ),
+                  // validator: FormBuilderValidators.equal(
+                  //   context,
+                  //   true,
+                  // ),
                   onChanged: (checkbox) {
                     if (checkbox == true) {
                       _getJalanController.text = jalanController.text;
@@ -1298,7 +1298,7 @@ class _EditDataDiriFormState extends State<EditDataDiriForm> {
                       index: widget.index,
                       name: _namaController.text,
                       tempat: _tempatController.text,
-                      jalan: _getJalanController.text,
+                      jalan: jalanController.text,
                       jenisKelamin: jenisKelamin,
                       tanggalLahir: tglController!,
                       provinsiKtp: provinsiPertama,
@@ -1320,29 +1320,37 @@ class _EditDataDiriFormState extends State<EditDataDiriForm> {
                       data: data,
                     ),
                   );
-                  Navigator.pushReplacement(context,
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return DashboardPage();
+                      },
+                    ),
+                  );
+                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
                     return DashboardPage();
                   }));
                 } else {
                   var alertStyle = AlertStyle(
-                      animationType: AnimationType.fromTop,
-                      isCloseButton: false,
-                      isOverlayTapDismiss: false,
-                      descStyle: TextStyle(fontWeight: FontWeight.bold),
-                      descTextAlign: TextAlign.start,
-                      animationDuration: Duration(milliseconds: 400),
-                      alertBorder: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0.0),
-                        side: BorderSide(
-                          color: Colors.grey,
-                        ),
+                    animationType: AnimationType.shrink,
+                    isCloseButton: false,
+                    isOverlayTapDismiss: false,
+                    descStyle: TextStyle(fontWeight: FontWeight.bold),
+                    descTextAlign: TextAlign.start,
+                    animationDuration: Duration(milliseconds: 400),
+                    alertBorder: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0.0),
+                      side: BorderSide(
+                        color: Colors.grey,
                       ),
-                      titleStyle: TextStyle(
-                        color: Colors.red,
-                      ),
-                      alertAlignment: Alignment.center,
-                    );
+                    ),
+                    titleStyle: TextStyle(
+                      color: Colors.red,
+                    ),
+                    alertAlignment: Alignment.center,
+                  );
                   Alert(
                     context: context,
                     style: alertStyle,
@@ -1371,4 +1379,6 @@ class _EditDataDiriFormState extends State<EditDataDiriForm> {
           ),
         ),
       );
+  @override
+  bool get wantKeepAlive => true;
 }
